@@ -1,7 +1,7 @@
 const InvalidTestError = require('./error/invalid-test-error');
 
 class Test {
-  constructor({ id, text, createdAt, updatedAt }) {
+  constructor({id, text, createdAt, updatedAt}) {
     this.id = id;
     this.text = text;
     this.updatedAt = updatedAt;

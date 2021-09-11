@@ -6,7 +6,20 @@
   "scripts": {
     "start": "node ./src/index.js",
     "dev": "nodemon -L ./src/index.js",
-    "test": "jest"
+    "lint": "eslint .",
+    "test": "jest --collectCoverage  --testPathPattern=/src/test/unit --forceExit --passWithNoTests"
+  },
+  "babel": {
+    "plugins": [
+      "@babel/plugin-proposal-throw-expressions"
+    ]
+  },
+  "jest": {
+    "verbose": true,
+    "roots": [
+      "<rootDir>",
+      "<rootDir>/src/test/"
+    ]
   },
   "repository": {
     "type": "git",
@@ -32,5 +45,15 @@
     "jest": "^27.1.0",
     "nodemon": "^2.0.12",
     "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-throw-expressions": "^7.10.4",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.10.0",
+    "eslint-config-google": "^0.14.0",
+    "jest": "^26.4.2",
+    "node-mocks-http": "^1.9.0",
+    "nodemon": "^2.0.4",
+    "supertest": "^5.0.0"
   }
 }
