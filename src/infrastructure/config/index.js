@@ -7,12 +7,20 @@ const run = {
     port: process.env.PORT || 3000,
     host: `https://localhost:/${process.env.PORT}`,
   },
+  twitch: {
+    clientId: process.env.TWITCH_CLIENT_ID,
+    secretId: process.env.TWITCH_CLIENT_SECRET,
+  },
 };
 
 const test = {
   server: {
     port: process.env.PORT || 3000,
     host: `https://localhost:/${process.env.PORT}`,
+  },
+  twitch: {
+    clientId: process.env.TWITCH_CLIENT_ID,
+    secretId: process.env.TWITCH_CLIENT_SECRET,
   },
 };
 

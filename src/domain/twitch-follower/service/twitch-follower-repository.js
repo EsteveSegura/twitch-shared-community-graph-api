@@ -1,4 +1,4 @@
-class TestRepository {
+class TwitchFollowerRepository {
   async find(id) {
     throw new Error('Method not implemented yet');
   }
@@ -16,4 +16,4 @@ class TestRepository {
   }
 }
 
-module.exports = TestRepository;
+module.exports = TwitchFollowerRepository;

@@ -1,6 +1,7 @@
 class SaveTestCommand {
-  constructor({text}) {
-    this.text = text;
+  constructor({id}) {
+    console.log(id);
+    this.id = id;
   }
 }
 

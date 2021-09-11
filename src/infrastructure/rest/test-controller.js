@@ -1,14 +1,14 @@
 const express = require('express');
-const SaveTestCommand = require('../../application/save_test/save-test-command');
+const GetAllFollowerCommand = require('../../application/get_all_followers/get-all-followers-command');
 const container = require('../../container');
 // eslint-disable-next-line new-cap
 const router = express.Router();
 
-router.post('/', async (req, res) => {
-  const {text} = req.body;
+router.get('/:id', async (req, res) => {
+  const {id} = req.params;
   try {
-    const command = new SaveTestCommand({text});
-    const saveTest = container.resolve('saveTest');
+    const command = new GetAllFollowerCommand({id});
+    const saveTest = container.resolve('getAllFollowers');
     const response = await saveTest.save(command);
 
     res.status(200).json({...response});
