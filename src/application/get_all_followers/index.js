@@ -3,7 +3,7 @@ const TwitchFollower = require('../../domain/twitch-follower/twitch-follower');
 
 class getAllFollowers {
   constructor({idGenerator, helixClient}) {
-    this.idGenerator = idGenerator; 
+    this.idGenerator = idGenerator;
     this.helixClient = helixClient;
   }
 

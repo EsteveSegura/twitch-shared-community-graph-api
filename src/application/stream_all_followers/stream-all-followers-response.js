@@ -1,5 +1,5 @@
 class StreamAllFollowersResponse {
-  constructor({ id, nickName, followers, totalFollowers = null, nextPage = null }) {
+  constructor({id, nickName, followers, totalFollowers = null, nextPage = null}) {
     this.id = id;
     this.nickName = nickName;
     this.followers = followers;
