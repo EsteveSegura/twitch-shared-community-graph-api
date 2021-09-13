@@ -22,16 +22,16 @@ router.get('/stream/:id', async (req, res) => {
   try {
     let currentCursor = '';
     const command = new StreamAllFollowerCommand({id});
-    const saveTest = container.resolve('streamAllFollowers');
+    const streamAllFollowers = container.resolve('streamAllFollowers');
 
-    const getOneFollowerPage = await saveTest.save(command);
+    const getOneFollowerPage = await streamAllFollowers.get(command);
     const firstPageFollowers = getOneFollowerPage.followers.map((follower) => follower);
     res.write(`data: ${JSON.stringify(firstPageFollowers)} \n\n`);
     currentCursor = getOneFollowerPage.nextPage;
 
     // The other pages
     for (let i = 0; i <= Math.floor((getOneFollowerPage.totalFollowers / 100) - 1); i++) {
-      const currentPage = await saveTest.save({id, currentNextPage: currentCursor});
+      const currentPage = await streamAllFollowers.get({id, currentNextPage: currentCursor});
       const batchFollowers = [];
 
       for (const followers of currentPage.followers) {
@@ -52,8 +52,8 @@ router.get('/:id', /* cache.withSessionAwareness(false),*/ async (req, res) => {
   const {id} = req.params;
   try {
     const command = new GetAllFollowerCommand({id});
-    const saveTest = container.resolve('getAllFollowers');
-    const response = await saveTest.save(command);
+    const getAllFollowers = container.resolve('getAllFollowers');
+    const response = await getAllFollowers.get(command);
 
     res.status(200).json({...response});
   } catch (err) {
