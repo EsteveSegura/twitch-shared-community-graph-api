@@ -3,11 +3,11 @@ const TwitchFollower = require('../../domain/twitch-follower/twitch-follower');
 
 class getAllFollowers {
   constructor({idGenerator, helixClient}) {
-    this.idGenerator = idGenerator;
+    this.idGenerator = idGenerator; 
     this.helixClient = helixClient;
   }
 
-  async save({id}) {
+  async get({id}) {
     const {nickName, followers} = await this.helixClient.getAllFollowers(id);
     const followersOfUser = followers.map((follower) => new TwitchFollower({
       id: follower._id,

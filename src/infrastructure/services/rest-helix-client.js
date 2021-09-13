@@ -35,7 +35,7 @@ class RestHelixClient {
     return token.data.access_token;
   }
 
-  async _getFollower(id, cursor = null) {
+  async getFollower(id, cursor = null) {
     const token = await this._getHelixToken();
     const config = {
       headers: {
@@ -56,7 +56,7 @@ class RestHelixClient {
     const allFollowers = [];
     let currentCursor = '';
 
-    const getOneFollowerPage = await this._getFollower(id);
+    const getOneFollowerPage = await this.getFollower(id);
     currentCursor = getOneFollowerPage._cursor;
 
     // First page
@@ -66,8 +66,7 @@ class RestHelixClient {
 
     // The other pages
     for (let i = 0; i <= Math.floor((getOneFollowerPage._total / 100) - 1); i++) {
-      const currentPage = await this._getFollower(id, currentCursor);
-
+      const currentPage = await this.getFollower(id, currentCursor);
       for (const followers of currentPage.follows) {
         allFollowers.push(followers.user);
       }

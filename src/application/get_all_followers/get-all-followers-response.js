@@ -1,4 +1,4 @@
-class SaveTestResponse {
+class GetAllFollowersResponse {
   constructor({id, nickName, followers}) {
     this.id = id;
     this.nickName = nickName;
@@ -6,4 +6,4 @@ class SaveTestResponse {
   }
 }
 
-module.exports = SaveTestResponse;
+module.exports = GetAllFollowersResponse;

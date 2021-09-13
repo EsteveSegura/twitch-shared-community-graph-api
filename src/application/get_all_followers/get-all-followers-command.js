@@ -1,8 +1,7 @@
-class SaveTestCommand {
+class GetAllFollowersCommand {
   constructor({id}) {
-    console.log(id);
     this.id = id;
   }
 }
 
-module.exports = SaveTestCommand;
+module.exports = GetAllFollowersCommand;
