@@ -7,7 +7,7 @@ class getAllFollowers {
     this.helixClient = helixClient;
   }
 
-  async save({id}) {
+  async get({id}) {
     const {nickName, followers} = await this.helixClient.getAllFollowers(id);
     const followersOfUser = followers.map((follower) => new TwitchFollower({
       id: follower._id,
